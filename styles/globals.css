@@ -1,0 +1,62 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #ffffff;
+  --color-console-bg: #0a0a0a;
+  --color-console-text: #ffffff;
+  --color-console-border: #ffffff;
+  --color-console-hover: #1a1a1a;
+  --color-console-active: #2a2a2a;
+  --color-console-accent: #FF4500;
+
+  --font-sans: "Space Grotesk", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    @apply bg-console-bg text-console-text;
+  }
+
+  body {
+    @apply font-sans;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .console-border {
+    @apply border border-console-border;
+  }
+
+  .console-button {
+    @apply bg-transparent border border-console-border text-console-text px-4 py-2
+           hover:bg-console-hover active:bg-console-active transition-colors
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .console-input {
+    @apply bg-transparent border border-console-border text-console-text px-3 py-2
+           focus:outline-none focus:ring-1 focus:ring-console-border;
+  }
+}
+
+/* RainbowKit Custom Styling */
+@layer components {
+  [data-rk] {
+    font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  }
+
+  button[data-rk] {
+    font-family: 'Space Grotesk', system-ui, sans-serif !important;
+    font-weight: 400;
+  }
+
+  [data-rk] * {
+    font-family: 'Space Grotesk', system-ui, sans-serif !important;
+  }
+}
