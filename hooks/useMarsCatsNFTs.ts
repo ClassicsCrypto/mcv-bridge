@@ -24,7 +24,7 @@ interface AlchemyNFT {
 }
 
 interface AlchemyNFTResponse {
-  ownedNfts: AlchemyNFT[];
+  nfts: AlchemyNFT[];
   totalCount: number;
 }
 
@@ -86,7 +86,7 @@ export function useMarsCatsNFTs() {
 
         console.log(`[useMarsCatsNFTs] Found ${data.totalCount} NFTs`);
 
-        const nftData: MarsCatsNFT[] = data.ownedNfts.map((nft: AlchemyNFT) => ({
+        const nftData: MarsCatsNFT[] = data.nfts.map((nft: AlchemyNFT) => ({
           tokenId: BigInt(nft.tokenId),
           metadata: {
             name: nft.name || nft.raw?.metadata?.name,
