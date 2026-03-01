@@ -44,12 +44,12 @@ export function useBridgeFeeQuote(selectedNfts: SelectedNFT[]) {
         functionName: "quoteSend",
         args: [dstEid, collectionAddress, tokenIds, 0n],
       })
-      .then((result) => {
+      .then((result: unknown) => {
         const quote = result as readonly [bigint, bigint];
         setFee(quote[0]);
         setIsLoading(false);
       })
-      .catch((err) => {
+      .catch((err: unknown) => {
         console.warn("[useBridgeFeeQuote] quote failed:", err);
         setFee(null);
         setError(true);
