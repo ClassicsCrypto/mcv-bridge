@@ -6,6 +6,8 @@ import Image from "next/image";
 import { WalletConnect } from "@/components/WalletConnect";
 import { NFTInventory } from "@/components/NFTInventory";
 import { BridgeControl } from "@/components/BridgeControl";
+import { BridgeHistory } from "@/components/BridgeHistory";
+import { Footer } from "@/components/Footer";
 import { CONFIG, IS_DEV } from "@/lib/config";
 import { getBridgeChainNames, isOnCorrectNetwork } from "@/lib/bridge-utils";
 import type { SelectedNFT } from "@/lib/types";
@@ -148,15 +150,17 @@ export default function Home() {
             <NFTInventory onSelectionChange={handleSelectionChange} />
 
             {/* Bridge Controls */}
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-2xl mx-auto space-y-4">
               <BridgeControl
                 selectedNfts={selectedNfts}
                 onBridgeComplete={handleBridgeComplete}
               />
+              <BridgeHistory />
             </div>
           </div>
         )}
       </div>
+      <Footer />
     </main>
   );
 }
