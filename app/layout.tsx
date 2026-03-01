@@ -6,6 +6,11 @@ import { Footer } from "@/components/Footer";
 export const metadata: Metadata = {
   title: "Mars Cats Bridge",
   description: "Bridge your Mars Cats NFTs between Ethereum and ApeChain",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
