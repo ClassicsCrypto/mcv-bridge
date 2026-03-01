@@ -7,7 +7,6 @@ import { WalletConnect } from "@/components/WalletConnect";
 import { NFTInventory } from "@/components/NFTInventory";
 import { BridgeControl } from "@/components/BridgeControl";
 import { BridgeHistory } from "@/components/BridgeHistory";
-import { Footer } from "@/components/Footer";
 import { CONFIG, IS_DEV } from "@/lib/config";
 import { getBridgeChainNames, isOnCorrectNetwork } from "@/lib/bridge-utils";
 import type { SelectedNFT } from "@/lib/types";
@@ -160,7 +159,6 @@ export default function Home() {
           </div>
         )}
       </div>
-      <Footer />
     </main>
   );
 }

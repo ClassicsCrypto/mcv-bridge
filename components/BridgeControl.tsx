@@ -93,10 +93,8 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
                 <span className="text-console-text/50 animate-pulse text-xs">calculating...</span>
               ) : feeFormatted ? (
                 <span className="text-console-accent">{feeFormatted}</span>
-              ) : feeError ? (
-                <span className="text-console-text/40 text-xs">unable to quote</span>
               ) : (
-                <span className="text-console-text/40 text-xs">—</span>
+                <span className="text-console-text/50 text-xs">shown at confirmation</span>
               )}
             </span>
           </div>

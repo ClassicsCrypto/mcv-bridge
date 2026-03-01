@@ -29,33 +29,40 @@
 }
 
 /* Starfield */
-body::before {
-  content: '';
+/* Starfield — using box-shadow technique for broad browser support */
+.starfield {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 1px;
+  height: 1px;
   pointer-events: none;
   z-index: 0;
-  background-image:
-    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 42%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 38% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 52% 73%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 67% 31%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 78% 58%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 5% 88%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 45% 91%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 93% 79%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 32% 62%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 71% 44%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 55%, rgba(255,255,255,0.2) 0%, transparent 100%),
-    radial-gradient(1px 1px at 59% 19%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 84% 94%, rgba(255,255,255,0.2) 0%, transparent 100%),
-    radial-gradient(2px 2px at 42% 35%, rgba(255,140,0,0.15) 0%, transparent 100%),
-    radial-gradient(2px 2px at 76% 67%, rgba(255,140,0,0.1) 0%, transparent 100%);
+  box-shadow:
+    120px 80px 0 1px rgba(255,255,255,0.7),
+    340px 210px 0 1px rgba(255,255,255,0.5),
+    580px 45px 0 1px rgba(255,255,255,0.6),
+    780px 330px 0 1px rgba(255,255,255,0.4),
+    960px 160px 0 1px rgba(255,255,255,0.7),
+    1100px 490px 0 1px rgba(255,255,255,0.5),
+    1300px 70px 0 1px rgba(255,255,255,0.6),
+    60px 520px 0 1px rgba(255,255,255,0.4),
+    420px 680px 0 1px rgba(255,255,255,0.5),
+    700px 750px 0 1px rgba(255,255,255,0.3),
+    880px 600px 0 1px rgba(255,255,255,0.6),
+    1200px 820px 0 1px rgba(255,255,255,0.4),
+    200px 900px 0 1px rgba(255,255,255,0.5),
+    500px 300px 0 1px rgba(255,255,255,0.3),
+    1050px 950px 0 1px rgba(255,255,255,0.4),
+    650px 430px 0 1.5px rgba(255,255,255,0.5),
+    1400px 280px 0 1px rgba(255,255,255,0.3),
+    280px 140px 0 1px rgba(255,255,255,0.6),
+    820px 55px 0 1px rgba(255,255,255,0.4),
+    1180px 710px 0 1px rgba(255,255,255,0.5),
+    /* Mars orange glints */
+    380px 380px 0 2px rgba(255,100,0,0.25),
+    900px 250px 0 2px rgba(255,80,0,0.2),
+    1350px 550px 0 1.5px rgba(255,120,0,0.2);
 }
 
 main {
