@@ -22,7 +22,7 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
 
   const forwardBridge = useBridgeMarsCats();
   const reverseBridge = useReverseBridgeMarsCats();
-  const { feeFormatted, isLoading: isFeeLoading } = useBridgeFeeQuote(selectedNfts);
+  const { feeFormatted, isLoading: isFeeLoading, error: feeError } = useBridgeFeeQuote(selectedNfts);
   const { addEntry } = useBridgeHistory();
 
   const bridge = bridgeDirection === "forward" ? forwardBridge : reverseBridge;
@@ -86,15 +86,17 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
       {canBridge && (
         <>
           {/* Fee Preview */}
-          <div className="console-border p-3 bg-white/[0.02] flex items-center justify-between">
-            <span className="text-console-text/60 text-xs">ESTIMATED BRIDGE FEE</span>
-            <span className="text-console-text text-sm font-bold font-mono">
+          <div className="console-border p-3 flex items-center justify-between" style={{background: "rgba(255,69,0,0.04)"}}>
+            <span className="text-console-text/70 text-xs font-bold">ESTIMATED BRIDGE FEE</span>
+            <span className="text-sm font-bold font-mono">
               {isFeeLoading ? (
-                <span className="text-console-text/40 animate-pulse">calculating...</span>
+                <span className="text-console-text/50 animate-pulse text-xs">calculating...</span>
               ) : feeFormatted ? (
                 <span className="text-console-accent">{feeFormatted}</span>
+              ) : feeError ? (
+                <span className="text-console-text/40 text-xs">unable to quote</span>
               ) : (
-                <span className="text-console-text/40">—</span>
+                <span className="text-console-text/40 text-xs">—</span>
               )}
             </span>
           </div>

@@ -58,7 +58,7 @@ body::before {
     radial-gradient(2px 2px at 76% 67%, rgba(255,140,0,0.1) 0%, transparent 100%);
 }
 
-main, header, section, div {
+main {
   position: relative;
   z-index: 1;
 }
