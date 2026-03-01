@@ -26,10 +26,14 @@ function EthereumIcon() {
 
 function ApeChainIcon() {
   return (
-    <svg width="18" height="18" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="50" fill="white" fillOpacity="0.15"/>
-      <text x="50" y="67" textAnchor="middle" fill="white" fontSize="42" fontWeight="bold" fontFamily="sans-serif">A</text>
-    </svg>
+    <Image
+      src="/apechain-logo.jpg"
+      alt="ApeChain"
+      width={18}
+      height={18}
+      className="rounded-sm"
+      unoptimized
+    />
   );
 }
 
