@@ -118,7 +118,18 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
                 disabled={isLoading || bridgeState.status === "completed"}
                 className="bridge-button console-button w-full"
               >
-                {isLoading ? "PROCESSING..." : "🌉 BRIDGE"}
+                {isLoading ? "PROCESSING..." : (
+                  <span className="flex items-center justify-center gap-2">
+                    <img
+                      src="https://cdn.discordapp.com/emojis/883749621204123698.png"
+                      alt=""
+                      width={18}
+                      height={18}
+                      className="inline-block"
+                    />
+                    BRIDGE
+                  </span>
+                )}
               </button>
             </div>
           )}
