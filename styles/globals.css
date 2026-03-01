@@ -103,6 +103,39 @@ main {
     border-color: #FF4500 !important;
     box-shadow: 0 0 16px rgba(255, 69, 0, 0.35);
   }
+
+  .bridge-button {
+    background-color: #FF4500;
+    border-color: #FF4500;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    animation: bridge-pulse 2s ease-in-out infinite;
+  }
+
+  .bridge-button:hover:not(:disabled) {
+    background-color: #ff5a1f;
+    animation: none;
+    box-shadow: 0 0 24px rgba(255, 69, 0, 0.6);
+  }
+
+  .bridge-button:disabled {
+    background-color: #7a2200;
+    border-color: #7a2200;
+    animation: none;
+    opacity: 0.7;
+  }
+
+  @keyframes bridge-pulse {
+    0%, 100% {
+      box-shadow: 0 0 8px rgba(255, 69, 0, 0.4);
+      opacity: 1;
+    }
+    50% {
+      box-shadow: 0 0 22px rgba(255, 69, 0, 0.8), 0 0 40px rgba(255, 69, 0, 0.3);
+      opacity: 0.9;
+    }
+  }
 }
 
 /* RainbowKit Custom Styling */

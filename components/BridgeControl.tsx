@@ -116,9 +116,9 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
               <button
                 onClick={handleBridge}
                 disabled={isLoading || bridgeState.status === "completed"}
-                className="console-button w-full"
+                className="bridge-button console-button w-full"
               >
-                {isLoading ? "PROCESSING..." : "BRIDGE"}
+                {isLoading ? "PROCESSING..." : "🌉 BRIDGE"}
               </button>
             </div>
           )}

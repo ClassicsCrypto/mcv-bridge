@@ -19,10 +19,12 @@ export default function RootLayout({
         {/* Starfield background */}
         <div className="starfield" aria-hidden="true" />
         <Providers>
-          <div className="flex-1">
+          <div className="flex-1 pb-16">
             {children}
           </div>
-          <Footer />
+          <div className="fixed bottom-0 left-0 right-0 z-50 bg-console-bg border-t border-console-border/20">
+            <Footer />
+          </div>
         </Providers>
       </body>
     </html>
