@@ -6,7 +6,7 @@ import { useChainId } from "wagmi";
 import { getBridgeDirection } from "@/lib/bridge-utils";
 
 export function BridgeHistory() {
-  const { history } = useBridgeHistory();
+  const { history, clearHistory } = useBridgeHistory();
   const chainId = useChainId();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -22,7 +22,17 @@ export function BridgeHistory() {
           RECENT BRIDGES
           <span className="ml-2 text-console-accent text-xs font-mono">({history.length})</span>
         </span>
-        <span className="text-console-text/50 text-sm">{isOpen ? "▲" : "▼"}</span>
+        <div className="flex items-center gap-3">
+          {isOpen && (
+            <span
+              onClick={(e) => { e.stopPropagation(); clearHistory(); }}
+              className="text-console-text/30 hover:text-red-400 text-xs font-mono transition-colors cursor-pointer"
+            >
+              CLEAR
+            </span>
+          )}
+          <span className="text-console-text/50 text-sm">{isOpen ? "▲" : "▼"}</span>
+        </div>
       </button>
 
       {isOpen && (

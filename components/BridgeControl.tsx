@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { useChainId } from "wagmi";
 import { useBridgeMarsCats } from "@/hooks/useBridgeMarsCats";
 import { useReverseBridgeMarsCats } from "@/hooks/useReverseBridgeMarsCats";
@@ -30,8 +30,16 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
 
   const canBridge = selectedNfts.length > 0;
 
+  // Track which txHash we've already recorded to prevent duplicate history entries
+  const recordedTxHash = useRef<string | null>(null);
+
   React.useEffect(() => {
-    if (bridgeState.status === "completed" && bridgeState.txHash && onBridgeComplete) {
+    if (
+      bridgeState.status === "completed" &&
+      bridgeState.txHash &&
+      bridgeState.txHash !== recordedTxHash.current
+    ) {
+      recordedTxHash.current = bridgeState.txHash;
       addEntry({
         txHash: bridgeState.txHash,
         tokenIds: selectedNfts.map((n) => n.tokenId.toString()),
@@ -40,15 +48,17 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
         timestamp: Date.now(),
         status: "completed",
       });
-      onBridgeComplete();
+      if (onBridgeComplete) onBridgeComplete();
     }
-  }, [bridgeState.status, bridgeState.txHash, onBridgeComplete]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [bridgeState.status, bridgeState.txHash]);
 
   const handleApprove = async () => {
     try { await approve(); } catch {}
   };
 
   const handleBridge = async () => {
+    recordedTxHash.current = null;
     try { await executeBridge(selectedNfts); } catch {}
   };
 

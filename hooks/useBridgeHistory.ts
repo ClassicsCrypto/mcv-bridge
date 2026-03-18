@@ -34,5 +34,10 @@ export function useBridgeHistory() {
     });
   }, []);
 
-  return { history, addEntry };
+  const clearHistory = useCallback(() => {
+    setHistory([]);
+    try { localStorage.removeItem(STORAGE_KEY); } catch {}
+  }, []);
+
+  return { history, addEntry, clearHistory };
 }
