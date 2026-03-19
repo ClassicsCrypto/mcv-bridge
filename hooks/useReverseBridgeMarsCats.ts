@@ -79,11 +79,15 @@ export function useReverseBridgeMarsCats() {
       console.log("├─ Shadow Contract:", marsCatsShadowAddress);
       console.log("├─ Beacon Contract:", beaconAddress);
 
+      // Beacon.quoteSend always uses the Ethereum base collection address,
+      // even for reverse bridges. The shadow address causes a revert.
+      const ethereumCollectionAddress = CONFIG.contracts.marsCats as `0x${string}`;
+
       const quote = (await publicClient.readContract({
         address: beaconAddress,
         abi: beaconAbi,
         functionName: "quoteSend",
-        args: [ethereumEid, marsCatsShadowAddress, tokenIds, 0n],
+        args: [ethereumEid, ethereumCollectionAddress, tokenIds, 0n],
       })) as readonly [bigint, bigint];
 
       const [nativeFee, lzTokenFee] = quote;

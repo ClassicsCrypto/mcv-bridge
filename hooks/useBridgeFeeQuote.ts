@@ -29,10 +29,8 @@ export function useBridgeFeeQuote(selectedNfts: SelectedNFT[]) {
     const direction = getBridgeDirection(chainId);
     const tokenIds = selectedNfts.map((n) => n.tokenId);
     const dstEid = direction === "forward" ? CONFIG.destinationEid : CONFIG.ethereumEid;
-    const collectionAddress =
-      direction === "forward"
-        ? (CONFIG.contracts.marsCats as `0x${string}`)
-        : (CONFIG.apechainContracts.marsCats as `0x${string}`);
+    // Beacon.quoteSend always uses the Ethereum base collection address regardless of direction
+    const collectionAddress = CONFIG.contracts.marsCats as `0x${string}`;
 
     setIsLoading(true);
     setError(false);
