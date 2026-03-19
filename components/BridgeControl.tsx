@@ -73,7 +73,7 @@ export function BridgeControl({ selectedNfts, onBridgeComplete }: BridgeControlP
       case "polling":
         return { title: "STEP 4/5: CONFIRMING", message: "Transaction submitted. Waiting for confirmation on-chain...", stage: "4/5" };
       case "completed":
-        return { title: "✅ STEP 5/5: SENT!", message: `Your Mars Cats have been sent and will arrive on ${CONFIG.destinationChain.name} in 1–3 minutes.`, stage: "5/5" };
+        return { title: "✅ STEP 5/5: SENT!", message: `Your Mars Cats have been sent and will arrive on ${destination} in 1–3 minutes.`, stage: "5/5" };
       case "error":
         return { title: "❌ BRIDGE FAILED", message: bridgeState.error || "An unknown error occurred", stage: "error" };
       default:
